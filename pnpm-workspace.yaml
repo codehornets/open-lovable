@@ -1,0 +1,11 @@
+# Standalone pnpm root for open-lovable. Its presence stops pnpm from walking up
+# to the outreach360 repo root (whose shared allowBuilds gate parks unapproved
+# build scripts as "set this to true or false" and blocks the install). We approve
+# this service's native build scripts here, scoped to open-lovable only — mirroring
+# services/copilot/pnpm-workspace.yaml.
+allowBuilds:
+  '@scarf/scarf': false   # install-time telemetry — decline; not needed to build
+  core-js: false          # postinstall is just a donation banner — no-op
+  esbuild: true           # fetches its native binary (used by the tsx/dev toolchain)
+onlyBuiltDependencies:
+  - esbuild

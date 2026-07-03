@@ -1,0 +1,7 @@
+# Keep the railway up upload lean — the Dockerfile.railway does its own install/build.
+node_modules
+.next
+.git
+.env
+.env.local
+*.log
